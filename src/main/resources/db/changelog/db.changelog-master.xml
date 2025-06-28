@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <!-- Master файл подключает другие changelog-и -->
+    <include file="changes/001-create-table-user.xml" relativeToChangelogFile="true"/>
+    <include file="changes/002-create-table-role.xml" relativeToChangelogFile="true"/>
+    <include file="changes/006-create-table-category.xml" relativeToChangelogFile="true"/>
+    <include file="changes/003-create-table-product.xml" relativeToChangelogFile="true"/>
+    <include file="changes/004-create-table-cart.xml" relativeToChangelogFile="true"/>
+    <include file="changes/005-create-table-cart_item.xml" relativeToChangelogFile="true"/>
+    <include file="changes/007-create-table-order.xml" relativeToChangelogFile="true"/>
+    <include file="changes/008-create-table-order_item.xml" relativeToChangelogFile="true"/>
+    <include file="changes/009-create-table-review.xml" relativeToChangelogFile="true"/>
+    <include file="changes/0010-create-table-users_roles.xml" relativeToChangelogFile="true"/>
+
+
+</databaseChangeLog>

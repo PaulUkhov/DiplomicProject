@@ -1,0 +1,51 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:16
+    container_name: my_postgres
+    restart: always
+    environment:
+      POSTGRES_DB: database
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: pa
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data4
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.17.10
+    environment:
+      - discovery.type=single-node
+
+  logstash:
+    image: logstash:7.17.10
+    volumes:
+      - ./logstash.conf:/usr/share/logstash/pipeline/logstash.conf
+    ports:
+      - "5000:5000"
+    depends_on:
+      - elasticsearch
+
+  kibana:
+    image: docker.elastic.co/kibana/kibana:7.17.10
+    ports:
+      - "5601:5601"
+    depends_on:
+      - elasticsearch
+
+#  rabbitmq:
+#    image: rabbitmq:3-management
+#    container_name: rabbitmq
+#    hostname: my-rabbit
+#    ports:
+#      - "5672:5672"     # порт для клиентов RabbitMQ
+#      - "15672:15672"   # порт для веб-интерфейса
+#    restart: unless-stopped
+
+volumes:
+  postgres_data:
+    driver: local
+
+
