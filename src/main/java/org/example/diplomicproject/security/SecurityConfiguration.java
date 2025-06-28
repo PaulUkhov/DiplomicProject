@@ -30,12 +30,12 @@ public class SecurityConfiguration {
         return http
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/auth/register").permitAll() // Регистрация без авторизации
+                        .requestMatchers("/api/auth/register").permitAll()
                         .requestMatchers("/api/resource/admin/**").hasRole("ADMIN")
                         .requestMatchers("/api/auth/user/**").hasRole("USER")
                         .requestMatchers("/api/resource/auth/**").authenticated()
                         .requestMatchers("/api/resource").permitAll()
-                        .requestMatchers("/swagger-ui/**", "/v3/api-docs/**").hasRole("ADMIN")
+                        .requestMatchers("/swagger-ui/**", "/v3/api-docs/**").permitAll()
                         .anyRequest().denyAll()
                 )
                 .sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
