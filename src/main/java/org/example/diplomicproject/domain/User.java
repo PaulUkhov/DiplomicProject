@@ -1,5 +1,6 @@
 package org.example.diplomicproject.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -34,7 +35,7 @@ public class User {
     @Schema(description = "Электронная почта пользователя", example = "pasha@example.com")
     private String email;
 
-    @Transient
+    @JsonIgnore
     @Schema(description = "Пароль (не сохраняется в базе)", example = "securePassword123")
     private String password;
 

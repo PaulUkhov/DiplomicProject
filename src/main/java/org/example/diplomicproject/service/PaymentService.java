@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 public class PaymentService {
 
     public boolean processPayment(Long userId, double amount) {
-        // Здесь может быть вызов внешнего сервиса оплаты (или имитация)
+        // Вызов внешнего сервиса оплаты (или имитация)
         System.out.println("Processing payment for user " + userId + " amount: " + amount);
 
         // Имитация успешной оплаты

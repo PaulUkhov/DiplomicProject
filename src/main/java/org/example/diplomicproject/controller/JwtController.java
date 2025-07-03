@@ -52,14 +52,14 @@ public class JwtController {
     @PostMapping("/login")
     public ResponseEntity<?> login(
             @io.swagger.v3.oas.annotations.parameters.RequestBody(
-                    description = "Данные для входа (email и пароль)",
+                    description = "Данные для входа (login и пароль)",
                     required = true,
                     content = @Content(schema = @Schema(implementation = AuthenticationRequest.class)))
             @Valid @RequestBody AuthenticationRequest authRequest) {
 
         try {
             AuthenticationResponse response = authUserService.authenticateAndGetTokens(
-                    authRequest.getEmail(),
+                    authRequest.getLogin(),
                     authRequest.getPassword()
             );
             return ResponseEntity.ok(AuthenticationResponse.builder().token(response.getToken()).build());

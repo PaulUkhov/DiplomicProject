@@ -13,9 +13,9 @@
     <include file="changes/004-create-table-cart.xml" relativeToChangelogFile="true"/>
     <include file="changes/005-create-table-cart_item.xml" relativeToChangelogFile="true"/>
     <include file="changes/007-create-table-order.xml" relativeToChangelogFile="true"/>
-    <include file="changes/008-create-table-order_item.xml" relativeToChangelogFile="true"/>
+    <include file="changes/008-create-table-order_Item.xml" relativeToChangelogFile="true"/>
     <include file="changes/009-create-table-review.xml" relativeToChangelogFile="true"/>
     <include file="changes/0010-create-table-users_roles.xml" relativeToChangelogFile="true"/>
-
+    <include file="changes/001-add-password-column.xml" relativeToChangelogFile="true"/>
 
 </databaseChangeLog>

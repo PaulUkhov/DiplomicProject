@@ -54,14 +54,14 @@ public class AuthUserService {
     }
 
     // ⏩ Возвращает сразу оба токена
-    public AuthenticationResponse authenticateAndGetTokens(String email, String password) {
+    public AuthenticationResponse authenticateAndGetTokens(String login, String password) {
         try {
             Authentication authentication = authenticationManager.authenticate(
-                    new UsernamePasswordAuthenticationToken(email, password)
+                    new UsernamePasswordAuthenticationToken(login, password)
             );
             SecurityContextHolder.getContext().setAuthentication(authentication);
 
-            UserDetails userDetails = userDetailsService.loadUserByUsername(email);
+            UserDetails userDetails = userDetailsService.loadUserByUsername(login);
             String accessToken = jwtUtil.generateToken(userDetails);
             String refreshToken = jwtUtil.generateRefreshToken(userDetails);
 
