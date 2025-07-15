@@ -92,7 +92,7 @@ services:
       logstash:
         condition: service_healthy
     environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/database  # Исправлено с localhost на postgres
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/database
       SPRING_DATASOURCE_USERNAME: user
       SPRING_DATASOURCE_PASSWORD: pa
       SPRING_JPA_HIBERNATE_DDL_AUTO: none
