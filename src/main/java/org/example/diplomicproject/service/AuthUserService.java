@@ -53,7 +53,7 @@ public class AuthUserService {
         return "Пользователь успешно зарегистрирован";
     }
 
-    // ⏩ Возвращает сразу оба токена
+    //  Возвращает сразу оба токена
     public AuthenticationResponse authenticateAndGetTokens(String login, String password) {
         try {
             Authentication authentication = authenticationManager.authenticate(
@@ -75,7 +75,7 @@ public class AuthUserService {
         }
     }
 
-    // 🔁 Обновление access токена по refresh
+    //  Обновление access токена по refresh
     public String refreshAccessToken(String refreshToken) {
         String username = jwtUtil.getUsernameFromToken(refreshToken);
         UserDetails userDetails = userDetailsService.loadUserByUsername(username);
